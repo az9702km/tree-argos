@@ -14,8 +14,8 @@ export default defineComponent({
       project: {} as ProjectInfo,
       showTooltip: false,
       tooltip: {
-        name: "",
-        category: "",
+        name: "" as string | undefined,
+        category: "" as string | undefined,
         x: 0,
         y: 0,
       },
@@ -30,9 +30,14 @@ export default defineComponent({
     this.setProject(1);
   },
   methods: {
-    handleClick(e: Event) {
-      if (e.target.parentNode.className.baseVal === "leaf")
-        this.setProject(+e.target.parentNode.dataset.id);
+    handleClick(target: HTMLElement) {
+      // console.log(target.parentElement?.classList[0]);
+      if (
+        target.parentElement != null &&
+        target.parentElement.classList[0] === "leaf" &&
+        target.parentElement.dataset.id
+      )
+        this.setProject(+target.parentElement.dataset.id);
     },
     getStatusColor(status: string): string {
       switch (status) {
@@ -54,14 +59,17 @@ export default defineComponent({
 
       if (foundProject) this.project = { ...foundProject };
     },
-    handlerTooltipShow(e: Event) {
-      if (e.target.parentNode.className.baseVal === "leaf") {
+    handlerTooltipShow(target: HTMLElement) {
+      if (
+        target.parentElement != null &&
+        target.parentElement.classList[0] === "leaf"
+      ) {
         this.showTooltip = true;
         this.tooltip = {
-          category: e.target.parentNode.dataset.category,
-          name: e.target.parentNode.dataset.name,
-          x: e.target.parentElement.getBoundingClientRect().left,
-          y: e.target.parentElement.getBoundingClientRect().top,
+          category: target.parentElement.dataset.category,
+          name: target.parentElement.dataset.name,
+          x: target.parentElement.getBoundingClientRect().left,
+          y: target.parentElement.getBoundingClientRect().top,
         };
       } else {
         this.tooltip = {
@@ -106,8 +114,14 @@ export default defineComponent({
         viewBox="0 0 704 653"
         style="enable-background: new 0 0 704 653"
         xml:space="preserve"
-        @click="handleClick"
-        @mouseover="handlerTooltipShow"
+        @click="
+          // @ts-ignore
+          handleClick($event.target)
+        "
+        @mouseover="
+          // @ts-ignore
+          handlerTooltipShow($event.target)
+        "
         class="w-5/6"
       >
         <g class="branches">
