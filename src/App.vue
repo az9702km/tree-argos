@@ -42,13 +42,13 @@ export default defineComponent({
     getStatusColor(status: string): string {
       switch (status) {
         case "good":
-          return "text-green-600";
+          return "fill-green-400";
         case "bad":
-          return "text-red-600";
+          return "fill-red-400";
         case "ok":
-          return "text-yellow-600";
+          return "fill-yellow-400";
         default:
-          return "text-yellow-600";
+          return "fill-yellow-600";
       }
     },
     ...mapActions(useProjectsStore, ["fetchProjects"]),
@@ -103,7 +103,7 @@ export default defineComponent({
     </Tooltip>
   </div>
   <div class="flex min-h-screen">
-    <div class="w-3/5 bg-slate-50 flex items-center justify-center">
+    <div class="w-full bg-slate-50 flex items-center justify-center">
       <svg
         version="1.1"
         id="tree"
@@ -1758,19 +1758,31 @@ export default defineComponent({
         </g>
       </svg>
     </div>
-    <div class="bg-slate-200 w-2/5">
+    <div class="bg-slate-200 w-[27rem] shrink-0">
       <InfoCard>
         <template #CardHeader>
           {{ project.category }}
         </template>
         <template #CardBody>
-          <p
-            class="uppercase font-semibold"
-            :class="getStatusColor(project.status)"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 22 32"
+            class="h-36 inline mb-4"
+            fill="none"
           >
-            {{ project.status }}
+            <path
+              d="M16.034 13.809c.3-.184.666-.442 1.198-.7 1.964-1.03 2.93-3.093 2.297-5.008-.533-1.583-1.964-2.614-3.661-2.614-.366 0-.766.073-1.099.147-.332.11-.499.11-.632.147l.1-.552c.1-.368.166-.847.166-1.289 0-2.21-1.697-3.94-3.794-3.94-2.063 0-3.728 1.804-3.728 3.94 0 .479.1.92.167 1.289l.1.552c-.133 0-.3-.036-.6-.11a3.633 3.633 0 00-1.098-.184c-1.664 0-3.062.994-3.594 2.614-.633 1.952.333 4.124 2.263 5.008.566.258.998.479 1.265.663-1.132.184-2.097 1.068-2.43 2.283-.3.958-.166 2.1.333 3.02.4.81 1.032 1.4 1.73 1.583.866.258 1.398.479 1.698.59-.333.294-.566.7-.732 1.178-.233.7-.167 1.473.133 2.136.3.589 1.165 1.73 2.13 2.872.732.92 1.598 1.951 1.797 2.393.067.148.2.221.333.295.033 0 .067.037.1.037h.133c.067 0 .1 0 .166-.037.2-.074.333-.184.4-.405.3-.479 1.065-1.436 1.797-2.283.965-1.142 1.864-2.246 2.197-2.873.333-.662.366-1.399.166-2.135-.133-.442-.333-.81-.666-1.105.333-.184.833-.405 1.665-.7 1.63-.589 2.662-2.798 2.096-4.603-.399-1.141-1.264-1.988-2.396-2.209z"
+              :class="getStatusColor(project.status)"
+            />
+            <path
+              d="M11.241 29.054V20.07l2.93-1.142a.776.776 0 00.399-.957c-.133-.405-.5-.59-.866-.442l-2.463.958v-5.892l3.928-2.062c.333-.184.466-.626.3-.995-.167-.368-.566-.515-.9-.331l-3.36 1.768v-6.74c0-.404-.3-.736-.666-.736-.367 0-.666.332-.666.737v24.82l.1 2.577a.76.76 0 00.332.331c.034 0 .067.037.1.037h.133c.067 0 .1 0 .167-.037a.68.68 0 00.433-.442l.1-2.467z"
+              class="fill-gray-900"
+            />
+          </svg>
+          <p class="uppercase text-xs text-gray-600 tracking-wider mb-12">
+            Кадрлар сиёсатини таъминлаш йиғма ахборот-таҳлил департаменти
           </p>
-          <h1 class="text-xl font-semibold mb-8">
+          <h1 class="text-lg font-semibold mb-4">
             {{ project.name }}
           </h1>
           <p>
