@@ -4,4 +4,5 @@ export interface ProjectInfo {
   status: string;
   name: string;
   statusText: string;
+  subcategory: string;
 }

@@ -102,7 +102,7 @@ export default defineComponent({
       </template>
     </Tooltip>
   </div>
-  <div class="flex min-h-screen">
+  <div class="flex h-screen">
     <div class="w-full bg-slate-50 flex items-center justify-center">
       <svg
         @click="
@@ -115,7 +115,7 @@ export default defineComponent({
         "
         fill="none"
         viewBox="0 0 1113 918"
-        class="w-5/6"
+        class="h-5/6"
       >
         <g stroke="#000" stroke-linecap="round" stroke-width="3">
           <path
@@ -1795,6 +1795,7 @@ export default defineComponent({
         </g>
         <g data-source="MEDIUM_TERM" data-indicator="leaf_135">
           <path
+            fill="#F7664F"
             d="M620.471 361.154a1.927 1.927 0 01-2.2.746c-1.436-.448-1.535.232-1.535.232-2.056 4.591-6.114.742-6.114.742s-.464 2.269-2.128 2.669c-2.606.565-5.694-4.626-5.694-4.626s-.296 2.804-2.338 3.139a3.824 3.824 0 01-4.104-2.557c-.84-2.095-2.326-7.499-2.326-7.499-3.151 1.662-4.343-1.042-4.575-2.277-.105-.591-.915-6.819-.915-6.819-3.866 2.989-4.317-3.728-4.317-3.728l-.68-7.521 7.426-1.525s6.564-1.482 4.791 3.078c0 0 6.254-.992 6.799-1.06 1.233-.134 4.185.245 3.49 3.732 0 0 5.599-.116 7.842.095a3.826 3.826 0 013.612 3.19c.262 2.058-2.338 3.139-2.338 3.139s5.852 1.485 6.071 4.154c.135 1.688-1.948 2.801-1.948 2.801s4.898 2.771 1.082 6.062c0 0-.627.285.213 1.529a1.94 1.94 0 01-.096 2.368"
             class="leafet"
           ></path>
@@ -3133,7 +3134,7 @@ export default defineComponent({
             />
           </svg>
           <p class="uppercase text-xs text-gray-600 tracking-wider mb-12">
-            Кадрлар сиёсатини таъминлаш йиғма ахборот-таҳлил департаменти
+            {{ project.subcategory }}
           </p>
           <h1 class="text-lg font-semibold mb-4">
             {{ project.name }}
