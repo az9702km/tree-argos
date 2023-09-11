@@ -1,5 +1,5 @@
 <template>
-  <div class="text-center h-full py-14 px-12 bg-white overflow-y-auto">
+  <div class="text-center py-14 px-12 ">
     <h1 class="text-base font-medium mb-12">
       <slot name="CardHeader"></slot>
     </h1>

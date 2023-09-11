@@ -5,4 +5,5 @@ export interface ProjectInfo {
   name: string;
   statusText: string;
   subcategory: string;
+  category_id: number;
 }

@@ -1,10 +1,6 @@
 <template>
   <div
-    class="absolute flex flex-col px-4 py-4 rounded-md bg-slate-900/75 max-w-md"
-    :style="{
-      right: 'calc( 100% - ' + x + 'px)',
-      bottom: 'calc( 100% - ' + y + 'px)',
-    }"
+    class="absolute flex flex-col max-w-md right-0 top-0"
   >
     <slot name="category"></slot>
     <slot name="pr-name"></slot>
